@@ -2,7 +2,7 @@ from langchain_core.messages import AIMessage
 from utils.promts import basic_rag_prompt
 from llm import get_llm
 
-llm = get_llm()  # always streaming-enabled
+llm = get_llm()  
 
 def chatbot(state, streaming: bool = True):
     user_input = state["messages"][-1].content 
@@ -22,7 +22,6 @@ def chatbot(state, streaming: bool = True):
             streamed_text += token 
         return {"messages": [AIMessage(content=streamed_text)]}
     else:
-        # Use standard LLM instance with streaming disabled
         non_stream_llm = get_llm(streaming=False)
         response = non_stream_llm.invoke(formatted_prompt)
         return {"messages": [AIMessage(content=response)]}
