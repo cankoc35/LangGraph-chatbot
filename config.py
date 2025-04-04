@@ -13,4 +13,6 @@ DB_URI = f"postgresql://{DATABASE_CONFIG['user']}:{DATABASE_CONFIG['password']}@
 
 OLLAMA_MODEL = "llama3.2:3b-instruct-q4_0"
 
+OLLAMA_EMBEDDING_MODEL = "mxbai-embed-large"
+
 NATS_URL = os.getenv("NATS_URL", "nats://localhost:4222")
